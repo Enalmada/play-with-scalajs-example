@@ -6,5 +6,6 @@ import org.scalajs.dom
 object ScalaJSExample extends js.JSApp {
   def main(): Unit = {
     dom.document.getElementById("scalajsShoutOut").textContent = "ScalaJS yay!"
+    println("Hello world!")
   }
 }
