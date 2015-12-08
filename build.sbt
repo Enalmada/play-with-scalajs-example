@@ -10,6 +10,7 @@ lazy val server = (project in file(".")).settings(
   resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
   libraryDependencies ++= Seq(
     "org.webjars" % "jquery" % "2.1.4",
+    "org.webjars" %% "webjars-play" % "2.4.0-1",
     specs2 % Test
   )
 ).enablePlugins(PlayScala).

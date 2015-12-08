@@ -6,26 +6,26 @@
 <html>
   <head>
     <title>@title</title>
-    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
 
     <!-- Load Lab.js dynamically and then other js async: https://gist.github.com/getify/603980-->
     <script>
     (function(g,b,d){var c=b.head||b.getElementsByTagName("head"),D="readyState",E="onreadystatechange",F="DOMContentLoaded",G="addEventListener",H=setTimeout;
     function f(){
         $LAB
-        .script("@routes.Assets.at("lib/jquery/jquery.min.js")").wait()
+        .script("@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))").wait()
 
         @if(Play.isProd(Play.current)) {
-          .script("@{s"/assets/client-opt.s"}").wait()
+          .script("@routes.Assets.versioned("client-opt.s")").wait()
         } else {
-          .script("@{s"/assets/client-fastopt.js"}").wait()
+          .script("@routes.Assets.versioned("client-fastopt.js")").wait()
         }
 
-        .script("@{s"/assets/client-launcher.js"}")
+        .script("@routes.Assets.versioned("client-launcher.js")")
     }
     H(function(){if("item"in c){if(!c[0]){H(arguments.callee,25);return}c=c[0]}var a=b.createElement("script"),e=false;a.onload=a[E]=function(){if((a[D]&&a[D]!=="complete"&&a[D]!=="loaded")||e){return false}a.onload=a[E]=null;e=true;f()};
-    a.src="@routes.Assets.at("javascripts/LAB.min.js")";
+    a.src="@routes.Assets.versioned("javascripts/LAB.min.js")";
     c.insertBefore(a,c.firstChild)},0);if(b[D]==null&&b[G]){b[D]="loading";b[G](F,d=function(){b.removeEventListener(F,d,false);b[D]="complete"},false)}})(this,document);
     </script>
 
