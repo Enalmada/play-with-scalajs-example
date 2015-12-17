@@ -15,9 +15,9 @@
     function f(){
         $LAB
         .script("@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))").wait()
-
+        .script("@routes.Assets.versioned("javascripts/main.js")").wait()
         @if(Play.isProd(Play.current)) {
-          .script("@routes.Assets.versioned("client-opt.s")").wait()
+          .script("@routes.Assets.versioned("client-opt.js")").wait()
         } else {
           .script("@routes.Assets.versioned("client-fastopt.js")").wait()
         }

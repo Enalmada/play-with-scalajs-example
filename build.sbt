@@ -6,7 +6,8 @@ lazy val scalaV = "2.11.7"
 lazy val server = (project in file(".")).settings(
   scalaVersion := scalaV,
   scalaJSProjects := clients,
-  pipelineStages := Seq(scalaJSProd, gzip),
+  pipelineStages in Assets := Seq(scalaJSProd, digest, gzip),
+  pipelineStages := Seq(scalaJSProd, uglify, digest, gzip),
   resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
   libraryDependencies ++= Seq(
     "org.webjars" % "jquery" % "2.1.4",

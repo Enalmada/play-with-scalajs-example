@@ -13,3 +13,8 @@ addSbtPlugin("com.vmunier" % "sbt-play-scalajs" % "0.2.8")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-gzip" % "1.0.0")
 
+addSbtPlugin("com.typesafe.sbt" % "sbt-uglify" % "1.0.3")
+
+addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
+
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.9")
