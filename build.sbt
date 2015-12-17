@@ -12,6 +12,7 @@ lazy val server = (project in file(".")).settings(
   libraryDependencies ++= Seq(
     "org.webjars" % "jquery" % "2.1.4",
     "org.webjars" %% "webjars-play" % "2.4.0-1",
+    "janino" % "janino" % "2.5.10", // Runtime Java compiler, for Logback -- see logback-test.xml
     specs2 % Test
   )
 ).enablePlugins(PlayScala).
@@ -29,6 +30,8 @@ lazy val client = (project in file("client")).settings(
 ).enablePlugins(ScalaJSPlugin, ScalaJSPlay)
 
 scalaJSStage in Global := FastOptStage
+
+javaOptions in Test +="-Dlogger.resource=logback-test.xml"
 
 // loads the Play project at sbt startup
 onLoad in Global := (Command.process("project server", _: State)) compose (onLoad in Global).value
