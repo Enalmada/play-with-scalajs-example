@@ -1,11 +1,16 @@
 package example
 
+import org.querki.jquery._
+import org.scalajs.dom.Element
 import scala.scalajs.js
-import org.scalajs.dom
 
 object ScalaJSExample extends js.JSApp {
+
   def main(): Unit = {
-    dom.document.getElementById("scalajsShoutOut").textContent = "ScalaJS yay!"
-    println("Hello world!")
+
+    $("body").on("click", ".clickMe", js.undefined, { (elem:Element, evt:JQueryEventObject) =>
+      println("clicked")
+    })
+
   }
 }
